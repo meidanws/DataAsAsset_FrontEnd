@@ -8,8 +8,8 @@ import {
   Box,
   Hidden,
   IconButton,
-  Toolbar,
-  makeStyles
+  Toolbar,Typography,
+  makeStyles,Avatar
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
@@ -22,6 +22,11 @@ const useStyles = makeStyles(() => ({
   avatar: {
     width: 60,
     height: 60
+  }, white:{
+    backgroundColor:'white',
+    height:'60px',
+    width:'60px',
+    marginRight:'10px'
   }
 }));
 
@@ -55,8 +60,15 @@ const TopBar = ({
     >
       <Toolbar>
         <RouterLink to="/dashboard">
-          <Logo  />
+          {/* <Logo  />   */}
+          <Avatar className={classes.white} > 
+          <img src={'../images/DataAsAssetLogo.png'} alt="A"  width= "50px" marginBottom="15px"/>
+          </Avatar>
         </RouterLink>
+        <Typography variant="body2" align="center" marginTop="20px"  >
+        {'Data as Asset'}
+        </Typography> 
+
         <Box flexGrow={1} />
         <Hidden mdDown>
           <IconButton color="inherit">

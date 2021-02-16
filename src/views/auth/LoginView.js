@@ -25,7 +25,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-
+import Loader from 'react-loader-spinner';
+import { usePromiseTracker,trackPromise } from "react-promise-tracker";
 
 function Copyright() {
   return (
@@ -44,6 +45,26 @@ function Copyright() {
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
+
+ const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker();
+    return promiseInProgress && (
+      <div
+           style={{
+              width: "100%",
+              height: "100",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position:"absolute",
+              marginTop: "10%"
+
+           }}
+          >
+            <Loader type="Oval" color="#00BFFF" height="100" width="100" />
+         </div>
+    );  
+  }
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -72,10 +93,13 @@ const useStyles = makeStyles((theme) => ({
   TextField:{
     textAlign: 'center',
     marginLeft:'17%',
+    marginTop:'6%'
     
   },
   image:{
-   width: '150px'
+   width: '70px',
+   margin: '10px',
+   
   }
 }));
 
@@ -101,6 +125,7 @@ export default function LoginView() {
 const HandleSubmit = async e => {
   e.preventDefault();
 
+  trackPromise(
 axios.post('https://dataasasset.herokuapp.com/app/login', {
   userName,password
 }, )
@@ -119,17 +144,18 @@ axios.post('https://dataasasset.herokuapp.com/app/login', {
 .catch(error => {
     console.log(error.response);
     handleClickOpen();
-});
+})); 
 }
 
-  return (
+  return (  
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
- 
-        <img src={'images/logo.png'} alt="A" className={classes.image}/>
+      <LoadingIndicator/>
+      <img src={'images/logo.png'} alt="A" className={classes.image}/>
+     
         <form onSubmit={HandleSubmit} className={classes.form} noValidate>
-         
+     
           <TextField
             variant="outlined"
             margin="normal"
@@ -150,6 +176,7 @@ axios.post('https://dataasasset.herokuapp.com/app/login', {
                  
                 ),  }}
           />
+         
           <TextField
             variant="outlined"
             margin="normal"
@@ -173,6 +200,7 @@ axios.post('https://dataasasset.herokuapp.com/app/login', {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
+          
           <Button
             type="submit" 
             variant="contained"
@@ -181,6 +209,15 @@ axios.post('https://dataasasset.herokuapp.com/app/login', {
           >
             Sign In
           </Button>
+        {/* <Typography variant="body2" align="center" margin="5px">
+        {'By '}
+        </Typography>
+        <Typography variant="body2" align="center" margin="5px"  >
+        {'Data'}
+        <img src={'images/DataAsAssetLogo.png'} alt="A"  width= "50px" marginBottom="15px"/>
+        {'Asset'}
+        </Typography> */}
+     
           <Grid container>
             <Grid item xs>
               <LinkUI href="#" variant="body2">
@@ -218,6 +255,7 @@ axios.post('https://dataasasset.herokuapp.com/app/login', {
           </Button>
         </DialogActions>
       </Dialog>
+  
     </Container>
   );
 }
