@@ -1,13 +1,13 @@
-# root = true
+root = true
 
-# [*.js]
-# end_of_line = lf
-# insert_final_newline = true
-# charset = utf-8
+[*.js]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
 
-# [*.js]
-# indent_style = space
-# indent_size = 2
+[*.js]
+indent_style = space
+indent_size = 2
 
-# [Makefile]
-# indent_style = tab
+[Makefile]
+indent_style = tab
