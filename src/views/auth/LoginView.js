@@ -125,7 +125,7 @@ export default function LoginView() {
 const HandleSubmit = async e => {
   e.preventDefault();
 
-  trackPromise(
+trackPromise(
 axios.post('https://dataasasset.herokuapp.com/app/login', {
   userName,password
 }, )

@@ -30,11 +30,11 @@ const ProductList = () => {
   return (
     <Page
       className={classes.root}
-      title="Products"
+      title="Data Assets"
     >
       <Container maxWidth={false}>
         <Toolbar />
-        <Box mt={3}>
+        {/* <Box mt={3}>
           <Grid
             container
             spacing={3}
@@ -54,7 +54,7 @@ const ProductList = () => {
               </Grid>
             ))}
           </Grid>
-        </Box>
+        </Box> */}
         <Box
           mt={3}
           display="flex"

@@ -12,7 +12,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
-
+import Dropzone from '../../reports/DashboardView/DropZone'
 const useStyles = makeStyles((theme) => ({
   root: {},
   importButton: {
@@ -35,18 +35,19 @@ const Toolbar = ({ className, ...rest }) => {
         display="flex"
         justifyContent="flex-end"
       >
-        <Button className={classes.importButton}>
+        {/* <Button className={classes.importButton}>
           Import
-        </Button>
+        </Button> */}
         <Button className={classes.exportButton}>
           Export
         </Button>
-        <Button
+        {/* <Button
           color="primary"
           variant="contained"
         >
           Add product
-        </Button>
+        </Button> */}
+        <Dropzone />
       </Box>
       <Box mt={3}>
         <Card>
@@ -66,7 +67,7 @@ const Toolbar = ({ className, ...rest }) => {
                     </InputAdornment>
                   )
                 }}
-                placeholder="Search product"
+                placeholder="Search data asset"
                 variant="outlined"
               />
             </Box>

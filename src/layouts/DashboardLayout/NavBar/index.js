@@ -14,7 +14,7 @@ const items = [
     title: 'Favorites'
   },
   {
-    href: '/app/account',
+    href: '/app/dataAssets',
     icon: ShoppingBagIcon,
     title: 'Data Assets'
   },
