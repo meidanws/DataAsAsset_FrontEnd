@@ -36,10 +36,10 @@ const TopBar = ({ className, ...rest }) => {
         <RouterLink to="/">
           {/* <Logo /> */}
           <Avatar className={classes.white} > 
-          <img src={'images/DataAsAssetLogo.png'} alt="A"  width= "50px" marginBottom="15px"/>
+          <img src={'images/DataAsAssetLogo.png'} alt="A"  width= "50px" />
           </Avatar>
         </RouterLink>
-        <Typography variant="body2" align="center" marginTop="20px"  >
+        <Typography variant="body2" align="center" margintop="20px"  >
         {'Data as Asset'}
         </Typography> 
       </Toolbar>

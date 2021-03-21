@@ -57,7 +57,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
               justifyContent: "center",
               alignItems: "center",
               position:"absolute",
-              marginTop: "10%"
+              margintop: "10%"
 
            }}
           >
