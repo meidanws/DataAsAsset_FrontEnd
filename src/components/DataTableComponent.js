@@ -35,7 +35,7 @@ function DataTable(props) {
   return (
     <>
     <div style={{ height: 400, width: '100%' }}>
-      <DataGrid loading={true} rows={props.rows} columns={props.columns} pageSize={5} re checkboxSelection />
+      <DataGrid loading={false} rows={props.rows} columns={props.columns} pageSize={5} re checkboxSelection />
     </div>
     </>
   );

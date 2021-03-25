@@ -131,25 +131,49 @@ const Dashboard = () => {
 
           var counter = 0;
           var counter2 = 0;
-          var objects = {
-           
-          };
+          
+          var pair = {id: counter2}
+          var pairs = []
 
           //build the rows of the table
-          for (const [i, value] of Tempcolumns.entries()) {
             response.data.data.forEach(function (item) {
-              console.log("item: " + item)
-              objects = [];
-              counter = 0; 
-              item.forEach(function (r) {
-              console.log("r: " + r)
-              objects.push({[counter++]: r}) })  
-              console.log("objects: " + objects)
+          
+              item.forEach(function (row) {
+                if(counter == Tempcolumns.length){
+                  counter = 0; 
+                  pair = {id: counter2}
+                  counter2++;
+                }
+                
+                Tempcolumns.forEach(function (header){
+                  if(header.headerName == row){
+                    console.log("return")
+                    return;
+                  }
+                  else{
+                     
+                  }
+                })
 
-              //Temprows.push({ id: counter2++ , }) 
-               
-            })
-          }
+                console.log("id:"+ counter  + " row: " + row)
+                var pair1 = {[counter++]: row }
+                Object.assign(pair,pair1);  
+                if(!Temprows.includes(pair) ){
+                  Temprows.push(pair);
+                }
+             })})
+            
+          //Temprows.push({ id: counter2}) ;
+         // Temprows.push({ id: counter2 , 0: 'Stav' }) 
+          //Temprows.push({ id: counter2 ,1: '28' }) 
+          // var pair = { id: counter2};
+          // var pair1 = {0: 'Stav' };
+          // var pair2 = {1: '28' };
+          //obj = {...Temprows, ...pair};
+          //Object.assign(pair,pair1,pair2);
+          //Object.assign(Temprows, {1: "28"});
+         // Temprows.push(pair);
+          //{ id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 }
 
           console.log(Temprows);
 
@@ -158,6 +182,8 @@ const Dashboard = () => {
         }
       });
   }
+
+
 
   return (
     <Page
