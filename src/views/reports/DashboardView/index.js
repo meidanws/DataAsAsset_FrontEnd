@@ -20,7 +20,7 @@ import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import axios from "axios"
 import { object } from 'prop-types';
-
+import GoogleApiWrapper from 'src/components/Map'
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
@@ -50,7 +50,9 @@ const Dashboard = () => {
   const [currentValue, setCurrentValue] = React.useState("");
   const [columns, setCurrentColumns] = React.useState([]);
   const [rows, setCurrentRows] = React.useState([]);
-
+  const [currentData, setCurrentData] = React.useState([]);
+  
+  
   //var columns = []
   var assetNameList = ['']
 
@@ -123,6 +125,8 @@ const Dashboard = () => {
       .then(response => {
         if (response.status == 200) {
           //build the columns of the table
+          
+
           response.data.data[0].forEach(function (item) {
             if (!Tempcolumns.includes(item) && item != null) {
               Tempcolumns.push({ field: columnsCounter++, headerName: item, width: 150 },)
@@ -163,20 +167,8 @@ const Dashboard = () => {
                 }
              })})
             
-          //Temprows.push({ id: counter2}) ;
-         // Temprows.push({ id: counter2 , 0: 'Stav' }) 
-          //Temprows.push({ id: counter2 ,1: '28' }) 
-          // var pair = { id: counter2};
-          // var pair1 = {0: 'Stav' };
-          // var pair2 = {1: '28' };
-          //obj = {...Temprows, ...pair};
-          //Object.assign(pair,pair1,pair2);
-          //Object.assign(Temprows, {1: "28"});
-         // Temprows.push(pair);
-          //{ id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 }
-
           console.log(Temprows);
-
+          setCurrentData(response.data.data);
           setCurrentColumns(Tempcolumns);
           setCurrentRows(Temprows)
         }
@@ -225,7 +217,7 @@ const Dashboard = () => {
             xs={16}
           >
 
-            <Autocomplete
+            {/* <Autocomplete
               id="combo-box-demo"
               options={assetNameList}
               value={currentValue}
@@ -237,10 +229,10 @@ const Dashboard = () => {
               getOptionLabel={(option) => option}
               style={{ width: 300, margin: "5px" }}
               renderInput={(params) => <TextField {...params} label="Select Data Asset" variant="outlined" />}
-            />
+            /> */}
 
-            {/* <Budget /> */}
-            <DataTable name={currentValue} columns={columns} rows={rows} />
+            <Budget />
+            {/* <DataTable name={currentValue} columns={columns} rows={rows} /> */}
 
           </Grid>
           <Grid
@@ -270,8 +262,8 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-            <iframe src='https://www.israelweather.co.il/weather_out.asp?code_width=150&height=200&code_color=white&code_font_color=black' name='in_frame' frameborder='0' scrolling='No'></iframe>
-            {/* <TotalProfit /> */}
+            {/* <iframe src='https://www.israelweather.co.il/weather_out.asp?code_width=150&height=200&code_color=white&code_font_color=black' name='in_frame' frameborder='0' scrolling='No'></iframe> */}
+            <TotalProfit />
           </Grid>
           <Grid
             item
@@ -281,6 +273,11 @@ const Dashboard = () => {
             xs={12}
           >
             {/* <Sales /> */}
+           <h3>We are on the map:</h3>
+           <br/> 
+            <GoogleApiWrapper data={currentData}/>
+        
+         
           </Grid>
           <Grid
             item
@@ -289,6 +286,7 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
+             <iframe src='https://www.israelweather.co.il/weather_out.asp?code_width=150&height=200&code_color=white&code_font_color=black' name='in_frame' frameborder='0' scrolling='No'></iframe>
             {/* <TrafficByDevice /> */}
           </Grid>
           <Grid
