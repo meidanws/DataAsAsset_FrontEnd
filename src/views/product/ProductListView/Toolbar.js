@@ -103,8 +103,6 @@ const Toolbar = ({ className, ...rest }) => {
       .then(response => {
         if (response.status == 200) {
           //build the columns of the table
-          
-
           response.data.data[0].forEach(function (item) {
             if (!Tempcolumns.includes(item) && item != null) {
               Tempcolumns.push({ field: columnsCounter++, headerName: item, width: 150 },)
@@ -145,7 +143,8 @@ const Toolbar = ({ className, ...rest }) => {
                 }
              })})
             
-          console.log(Temprows);
+          console.log("TempRows:" + Temprows);
+          // set the data
           setCurrentData(response.data.data);
           setCurrentColumns(Tempcolumns);
           setCurrentRows(Temprows)
@@ -176,9 +175,7 @@ const Toolbar = ({ className, ...rest }) => {
         {/* <Button className={classes.importButton}>
           Import
         </Button> */}
-        <Button className={classes.exportButton}>
-          Export
-        </Button>
+        
         {/* <Button
           color="primary"
           variant="contained"

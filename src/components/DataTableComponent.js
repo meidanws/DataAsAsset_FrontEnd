@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DataGrid,GridColDef,ValueGetterParams  } from '@material-ui/data-grid';
+import { DataGrid,  GridToolbarContainer,GridToolbarExport } from '@material-ui/data-grid';
 import axios from "axios"
  
 
@@ -29,13 +29,23 @@ import axios from "axios"
  
 // ];
 
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport />
+    </GridToolbarContainer>
+  );
+}
 
 function DataTable(props) {
   
   return (
     <>
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid loading={false} rows={props.rows} columns={props.columns} pageSize={5} re checkboxSelection />
+    <div style={{ height: 600, width: '100%' }}>
+      <DataGrid loading={false} rows={props.rows} columns={props.columns} pageSize={8} re checkboxSelection autoHeight={true}
+       components={{
+          Toolbar: CustomToolbar,
+        }} />
     </div>
     </>
   );

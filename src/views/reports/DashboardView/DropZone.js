@@ -31,13 +31,15 @@ export default class DropzoneDialogExample extends Component {
 
   handleSave(files) {
     var data = [];
+    var assetName = this.props.assetName
+    var descreption = this.props.descreption
+    
     readXlsxFile(files[0]).then((rows) => {
       // `rows` is an array of rows
       // each row being an array of cells.
       data = rows;
       console.log(data)
-      assetName = this.props.assetName
-      descreption = this.props.descreption
+     
       // Saving the data into database
       axios.post('https://dataasasset.herokuapp.com/app/uploadDataAseet', {
         assetName, descreption, data
