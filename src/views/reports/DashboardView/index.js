@@ -8,6 +8,11 @@ import Sales from './Sales';
 import TasksProgress from './TasksProgress';
 import TotalCustomers from './TotalCustomers';
 import TotalProfit from './TotalProfit';
+import Line from './Line';
+import BarChart from './BarChart'
+import MultiAxisLine from './MultiAxisLine'
+import MultiType from './MultiType'
+import DoughnutChart from './Doughnut'
 import TrafficByDevice from './TrafficByDevice';
 import Dropzone from './DropZone'
 import DataTable from '../../../components/DataTableComponent'
@@ -21,6 +26,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import axios from "axios"
 import { object } from 'prop-types';
 import GoogleApiWrapper from 'src/components/Map'
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
@@ -211,10 +218,10 @@ const Dashboard = () => {
         >
           <Grid
             item
-            lg={9}
-            sm={12}
-            xl={9}
-            xs={16}
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
           >
 
             {/* <Autocomplete
@@ -231,7 +238,8 @@ const Dashboard = () => {
               renderInput={(params) => <TextField {...params} label="Select Data Asset" variant="outlined" />}
             /> */}
 
-            <Budget />
+            {/* <Budget /> */}
+            <MultiAxisLine/>
             {/* <DataTable name={currentValue} columns={columns} rows={rows} /> */}
 
           </Grid>
@@ -242,7 +250,9 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-            <TotalCustomers />
+            {/* <MultiAxisLine/> */}
+            <Line/>
+            {/* <TotalCustomers /> */}
 
           </Grid>
           <Grid
@@ -252,8 +262,8 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-            <TasksProgress />
-
+            {/* <TasksProgress /> */}
+          <MultiType/>
           </Grid>
           <Grid
             item
@@ -263,39 +273,44 @@ const Dashboard = () => {
             xs={12}
           >
             {/* <iframe src='https://www.israelweather.co.il/weather_out.asp?code_width=150&height=200&code_color=white&code_font_color=black' name='in_frame' frameborder='0' scrolling='No'></iframe> */}
-            <TotalProfit />
+            {/* <TotalProfit /> */}
+            <BarChart/>
           </Grid>
-          <Grid
+          {/* <Grid
             item
             lg={8}
             md={12}
             xl={9}
             xs={12}
           >
-            {/* <Sales /> */}
-           <h3>We are on the map:</h3>
+               <Line/>
+            <Sales />
+          
+         
+          </Grid> */}
+          <Grid
+            item
+            lg={4}
+            md={6}
+            xl={3}
+            xs={12}
+          >
+            <DoughnutChart/>
+             {/* <iframe src='https://www.israelweather.co.il/weather_out.asp?code_width=150&height=200&code_color=white&code_font_color=black' name='in_frame' frameborder='0' scrolling='No'></iframe> */}
+       
+        <BarChart/>
+          </Grid>
+          <Grid
+            item
+            lg={4}
+            md={6}
+            xl={3}
+            xs={12}
+          >
+               {/* <TrafficByDevice /> */}
+               {/* <h3>We are on the map:</h3> */}
            <br/> 
             <GoogleApiWrapper data={currentData}/>
-        
-         
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
-          >
-             <iframe src='https://www.israelweather.co.il/weather_out.asp?code_width=150&height=200&code_color=white&code_font_color=black' name='in_frame' frameborder='0' scrolling='No'></iframe>
-            {/* <TrafficByDevice /> */}
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
-          >
             {/* <LatestProducts /> */}
           </Grid>
           <Grid
@@ -306,6 +321,7 @@ const Dashboard = () => {
             xs={12}
           >
             {/* <LatestOrders /> */}
+         
           </Grid>
         </Grid>
       </Container>

@@ -18,14 +18,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const CustomerListView = () => {
+const UsersListView = () => {
   const classes = useStyles();
   const [customers] = useState(data);
 
   return (
     <Page
       className={classes.root}
-      title="Companies"
+      title="Users"
     >
       <Container maxWidth={false}>
         <Toolbar />
@@ -37,4 +37,4 @@ const CustomerListView = () => {
   );
 };
 
-export default CustomerListView;
+export default UsersListView;

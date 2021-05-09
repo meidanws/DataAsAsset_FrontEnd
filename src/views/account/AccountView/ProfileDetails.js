@@ -12,21 +12,23 @@ import {
   TextField,
   makeStyles
 } from '@material-ui/core';
+import * as states from '../../../../src/IsraelCities.json'
 
-const states = [
-  {
-    value: 'alabama',
-    label: 'Tzur Moshe'
-  },
-  {
-    value: 'new-york',
-    label: 'New York'
-  },
-  {
-    value: 'san-francisco',
-    label: 'San Francisco'
-  }
-];
+
+// const states = [
+//   {
+//     value: 'alabama',
+//     label: 'Tzur Moshe'
+//   },
+//   {
+//     value: 'new-york',
+//     label: 'New York'
+//   },
+//   {
+//     value: 'san-francisco',
+//     label: 'San Francisco'
+//   }
+// ];
 
 const useStyles = makeStyles(() => ({
   root: {}
@@ -48,7 +50,7 @@ if(userData == null){
     lastName: fullName[1],
     email: userData.email,
     phone: '',
-    state: 'Tzur Moshe',
+    state: 'צור משה',
     country: 'Israel'
   });
 
@@ -160,21 +162,22 @@ if(userData == null){
             >
               <TextField
                 fullWidth
-                label="Select State"
+                label="Select city"
                 name="state"
                 onChange={handleChange}
                 required
                 select
                 SelectProps={{ native: true }}
-                value={values.state}
+                value={values.state}   
                 variant="outlined"
+                cli
               >
-                {states.map((option) => (
+                {states.ROWDATA.ROW.map((option) => (
                   <option
-                    key={option.value}
-                    value={option.value}
-                  >
-                    {option.label}
+                    key={option.סמל_ישוב}
+                    >
+
+                    {option.שם_ישוב}
                   </option>
                 ))}
               </TextField>

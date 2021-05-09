@@ -29,7 +29,7 @@ const items = [
     title: 'Trust Networks'
   },
   {
-    href: '/app/account',
+    href: '/app/customers',
     icon: CompanyIcon,
     title: 'Companies'
   },
@@ -39,7 +39,7 @@ const items = [
     title: 'Admin'
   },
   {
-    href: '/app/account',
+    href: '/app/users',
     icon: UsersIcon,
     title: 'Users'
   },
