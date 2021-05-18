@@ -29,7 +29,7 @@ export default class DropzoneDialogExample extends Component {
     });
   }
 
-  handleSave(files) {
+   handleSave(files) {
     var data = [];
     var assetName = this.props.assetName
     var descreption = this.props.descreption
@@ -41,10 +41,11 @@ export default class DropzoneDialogExample extends Component {
       console.log(data)
      
       // Saving the data into database
-      axios.post('https://dataasasset.herokuapp.com/app/uploadDataAseet', {
+      axios.post('http://localhost:8080/http://localhost:4000/app/uploadDataAseet', {
         assetName, descreption, data
       }, {
         headers: {
+          'Access-Control-Allow-Origin': '*'
           // Overwrite Axios's automatically set Content-Type
           //'Content-Type': 'application/json'
           //'Content-Type': 'application/x-www-form-urlencoded'

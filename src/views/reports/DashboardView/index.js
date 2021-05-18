@@ -9,10 +9,11 @@ import TasksProgress from './TasksProgress';
 import TotalCustomers from './TotalCustomers';
 import TotalProfit from './TotalProfit';
 import Line from './Line';
-import BarChart from './BarChart'
-import MultiAxisLine from './MultiAxisLine'
-import MultiType from './MultiType'
-import DoughnutChart from './Doughnut'
+import BarChart from './BarChart';
+import MultiAxisLine from './MultiAxisLine';
+import MultiType from './MultiType';
+import DoughnutChart from './Doughnut';
+import ClickEvents from './ClickEvents';
 import TrafficByDevice from './TrafficByDevice';
 import Dropzone from './DropZone'
 import DataTable from '../../../components/DataTableComponent'
@@ -283,7 +284,7 @@ const Dashboard = () => {
             xl={9}
             xs={12}
           >
-               <Line/>
+              
             <Sales />
           
          
@@ -298,7 +299,7 @@ const Dashboard = () => {
             <DoughnutChart/>
              {/* <iframe src='https://www.israelweather.co.il/weather_out.asp?code_width=150&height=200&code_color=white&code_font_color=black' name='in_frame' frameborder='0' scrolling='No'></iframe> */}
        
-        <BarChart/>
+             <ClickEvents/>
           </Grid>
           <Grid
             item

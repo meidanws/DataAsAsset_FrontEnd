@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
   },
   statsIcon: {
     marginRight: theme.spacing(1)
+  },
+  large: {
+    width: theme.spacing(10),
+    height: theme.spacing(10),
   }
 }));
 
@@ -40,12 +44,13 @@ const ProductCard = ({ className, product, ...rest }) => {
         <Box
           display="flex"
           justifyContent="center"
-          mb={3}
+          mb={4}
         >
           <Avatar
             alt="Product"
             src={product.media}
             variant="square"
+            className={classes.large}
           />
         </Box>
         <Typography
@@ -92,11 +97,11 @@ const ProductCard = ({ className, product, ...rest }) => {
             className={classes.statsItem}
             item
           >
-            <GetAppIcon
+            {/* <GetAppIcon
               className={classes.statsIcon}
               color="action"
-            />
-            <Typography
+            /> */}
+            {/* <Typography
               color="textSecondary"
               display="inline"
               variant="body2"
@@ -104,7 +109,7 @@ const ProductCard = ({ className, product, ...rest }) => {
               {product.totalDownloads}
               {' '}
               Downloads
-            </Typography>
+            </Typography> */}
           </Grid>
         </Grid>
       </Box>
